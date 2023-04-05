@@ -97,10 +97,6 @@
         body.dark .modal-footer {
             border-top: 1px solid #dee2e6;;
         }
-
-
-
-
     </style>
 
 </head>

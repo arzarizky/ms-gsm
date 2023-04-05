@@ -4,7 +4,7 @@
             <!--Logo start-->
             <img src="{{ asset('template') }}/assets/images/logo-gsm.gif" width="30" class="img-fluid" alt="logo">
             <!--logo End-->
-            <h4 class="logo-title">GSM MS</h4>
+            <h4 class="logo-title">MS Arthatel</h4>
         </a>
         <div class="sidebar-toggle" data-toggle="sidebar" data-active="true">
             <i class="icon">

@@ -23,7 +23,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role',
+        'role_id',
         'no_tlp',
         'avatar',
     ];
@@ -49,22 +49,22 @@ class User extends Authenticatable
 
     public function role(): HasOne
     {
-        return $this->HasOne(Roles::class, 'name', 'role');
+        return $this->HasOne(Roles::class, 'id', 'role_id');
     }
 
     public function isPelanggan() {
-        return $this->role == "Pelanggan";
+        return $this->role->name == "Pelanggan";
     }
 
     public function isSuperAdmin() {
-        return $this->role == "Super Admin";
+        return $this->role->name == "Super Admin";
     }
 
     public function isTeknisi() {
-        return $this->role == "Teknisi";
+        return $this->role->name == "Teknisi";
     }
 
     public function isSales() {
-        return $this->role == "Sales";
+        return $this->role->name == "Sales";
     }
 }

@@ -8,13 +8,21 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body p-4">
+<<<<<<< Updated upstream
                 <form class="needs-validation" action="{{ route('user-manager.store') }}" method="POST" novalidate=""
                     enctype="multipart/form-data">
+=======
+                <form class="needs-validation" action="{{ route('user-manager.store') }}" method="POST" novalidate="" enctype="multipart/form-data">
+>>>>>>> Stashed changes
                     @csrf
                     <div class="row ">
                         <div class="col-md-4 d-flex align-items-center justify-content-center">
                             <div class="profile-img-edit position-relative align-self-center">
+<<<<<<< Updated upstream
                                 <input type="file" hidden name="avatar" id="image-input-0" required="">
+=======
+                                <input type="file" name="avatar" id="image-input-0" required="" hidden>
+>>>>>>> Stashed changes
                                 <div class="valid-feedback mb-3">
                                     Looks good!
                                 </div>
@@ -79,10 +87,10 @@
 
                     <div class="mb-3">
                         <label for="role" class="form-label">Role</label>
-                        <select class="form-select" name="role" id="role" required="">
+                        <select class="form-select" name="role_id" id="role" required="">
                             <option selected="" disabled="" value="">Choose Role</option>
                             @foreach ($roles as $role)
-                                <option value="{{ $role->name }}">{{ $role->name }}</option>
+                                <option value="{{ $role->id }}">{{ $role->name }}</option>
                             @endforeach
                         </select>
                         <div class="valid-feedback">

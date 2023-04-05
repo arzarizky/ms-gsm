@@ -11,11 +11,11 @@ class UserManagerController extends Controller
     public function index()
     {
         $users = User::orderBy('updated_at', 'DESC')->paginate(10);
-        $totalSuperAdmin = User::where('role', 'Super Admin')->get()->count();
-        $totalPelanggan = User::where('role', 'Pelanggan')->get()->count();
-        $totalSales = User::where('role', 'Sales')->get()->count();
-        $totalTeknisi = User::where('role', 'Teknisi')->get()->count();
         $roles = Roles::all();
+        $totalSuperAdmin = User::where('role_id', 1)->get()->count();
+        $totalPelanggan = User::where('role_id', 2)->get()->count();
+        $totalSales = User::where('role_id', 3)->get()->count();
+        $totalTeknisi = User::where('role_id', 4)->get()->count();
 
         return view('page.user-manager.index', [
             'users' => $users,
@@ -35,23 +35,23 @@ class UserManagerController extends Controller
                 'email'             => 'email|required|unique:users,email',
                 'no_tlp'            => 'numeric|required',
                 'avatar'            => 'required|max:2048',
-                'role'              => 'string|max:255|required',
+                'role_id'           => 'numeric|required',
                 'password'          => 'string|max:255|required',
             ]
         );
 
-        dd($request->file('avatar'));
-
+        $roles = Roles::where('id', $request->role_id)->first();
+        $rolesName = $roles->name;
 
         if($request->file('avatar'))
         {
-            $path = $request->file('image_banner')->store('public/Image/Avatar');
-            $nameFile = 'storage/Image/Banner_Image/' . $request->file('image_banner')->hashName();
-            $validator['image_banner'] = $nameFile;
+            $path = $request->file('avatar')->store('public/Image/Avatar');
+            $nameFile = 'storage/Image/Avatar/' . $request->file('avatar')->hashName();
+            $validator['avatar'] = $nameFile;
         }
 
         $validator['password'] = bcrypt($validator['password']);
         User::create($validator);
-        return redirect()->route('user-manager.index')->with('success','User ' . $request->name . ' With Role ' . $request->role . ' Created Successfully.');
+        return redirect()->route('user-manager.index')->with('success','User ' . $request->name . ' With Role ' . $rolesName . ' Created Successfully.');
     }
 }

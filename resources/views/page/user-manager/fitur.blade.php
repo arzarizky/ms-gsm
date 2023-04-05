@@ -30,7 +30,7 @@
             Create User
         </button>
     </div>
-    <div class="col-lg-4 col-md-6 d-flex justify-content-center mb-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-aos="fade-up" data-aos-delay="1400">
+    <div class="col-lg-4 col-md-6 d-flex justify-content-center mb-3" data-bs-toggle="modal" data-bs-target="#CreateUser" data-aos="fade-up" data-aos-delay="1400">
         <button class="btn btn-soft-info w-75">
             <span class="btn-inner">
                 <svg width="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

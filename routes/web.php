@@ -29,7 +29,7 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth', 'super-admin'])->group(function () {
     Route::get('/user-manager', [UserManagerController::class, 'index'])->name('user-manager.index');
     Route::post('/user-manager', [UserManagerController::class, 'store'])->name('user-manager.store');
-
-    Route::post('/user-manager/update/{id}', [UserManagerController::class, 'update'])->name('user-manager.update');
+    Route::get('/user-manager/{email}', [UserManagerController::class, 'edit'])->name('user-manager.edit');
+    Route::post('/user-manager/{id}', [UserManagerController::class, 'update'])->name('user-manager.update');
     Route::post('user-manager/destroy/{id}', [UserManagerController::class, 'destroy'])->name('user-manager.destroy');
 });

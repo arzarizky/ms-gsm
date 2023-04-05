@@ -10,7 +10,7 @@
                     <div class="flex-wrap d-flex justify-content-between align-items-center">
                         <div>
                             <h1>Dashboard</h1>
-                            <p>Super Admin</p>
+                            <p>{{ auth()->user()->role }}</p>
                         </div>
                     </div>
                 </div>

@@ -9,7 +9,7 @@
                 <div class="col-md-12">
                     <div class="flex-wrap d-flex justify-content-between align-items-center">
                         <div>
-                            <h1>Dashboard</h1>
+                            <h1>User Manager</h1>
                             <p>Super Admin</p>
                         </div>
                     </div>
@@ -59,6 +59,8 @@
             }
         });
     </script>
+
+
 
     @if ($errors->any())
         <script>
